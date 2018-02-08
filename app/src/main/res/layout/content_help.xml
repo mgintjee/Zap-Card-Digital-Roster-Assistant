@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clipChildren="false">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_above="@+id/Help_linearLayoutImageButtons"
+        android:layout_below="@+id/Help_lLHeader">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:orientation="vertical"
+            android:background="@color/colorPrimary">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/Help_textViewBody"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/defaultText"
+                android:textColor="@android:color/black"
+                android:background="@color/colorPrimary"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/Help_lLHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimaryDark">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/Help_textViewHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/defaultText"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Help_linearLayoutImageButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/Help_imageButtonReturn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/go_back" />
+
+        <ImageButton
+            android:id="@+id/Help_spacer0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/cancel" />
+
+        <ImageButton
+            android:id="@+id/Help_imageButtonHelp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/help" />
+
+        <ImageButton
+            android:id="@+id/Help_spacer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/cancel" />
+
+        <ImageButton
+            android:id="@+id/Help_imageButtonAbout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/about" />
+    </LinearLayout>
+
+</RelativeLayout>

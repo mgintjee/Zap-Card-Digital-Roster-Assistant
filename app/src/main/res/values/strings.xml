@@ -1,0 +1,291 @@
+<resources>
+    <string name="helpAboutHeader">
+        About Zap Card ( W.I.P. )
+    </string>
+    <string name="helpAboutBody">
+        <![CDATA[
+        >About this App:
+        \n-> Target Audience:
+        \n—> Soccer coaches of all experience levels.
+        \n-> This app was developed with the intention of adding a convenient soccer lineup assistant that tracks the players\' positions, playing time, and the current formation.
+
+        \n\n> Team:
+        \n-> Matthew Gintjee: Code, Bad Graphics
+        \n-> Thomas Gintjee: Graphics
+
+        \n\n> Planned Content
+        \n-> Saving Lineups between separate uses
+        \n-> Lineup History
+
+        \n\n> Changelog:
+
+        \n\n-> Version 1.06 ( Current ):
+        \n—> Bug fixes for Version 1.05
+        \n—> Reformatted the DISPLAY LINEUP error text
+
+        \n\n-> Version 1.05 ( Current ):
+        \n—> Updated format for MODIFY LINEUP activity.
+        \n—> Updated the field graphics to be rounder and match the app\'s colors.
+        \n——> Hopefully it will make it less busy.
+        \n—> When using any of the widgets, it should now hide the android nav bars more consistently.
+        \n—> The AVAILABLE PLAYERS activity now sorts the players based off of their rating for the position rather than their number.
+        \n——> Only for the recommended players.
+        \n—> Changed dialogs to match the colors of the app.
+
+        \n\n-> Version 1.04:
+        \n—> Fixed valid formation name function.
+        \n——> Checks to make sure the name is blank before doing anything with it.
+
+        \n\n-> Version 1.03 (BETA):
+        \n—> Updated the field images to be transparent.
+        \n—> Changed behavior of some text views to be more consistent.
+
+        \n\n-> Version 1.02 (BETA):
+        \n—> Updated some more graphics to look less terrible. Still made with MS paint.
+        \n—> Filled out HELP activity for the specific widgets.
+        \n—> Fixed the valid lineup function.
+        \n——> The issue was incorrect evaluation of lineups.
+        \n—> Changed the theme\'s accent to black.
+        \n——> This makes the Edit Texts much more visible when typing into them.
+
+        \n\n-> Version 1.01 (BETA):
+        \n—> Updated some graphics to look less terrible. Still made with MS paint.
+        \n—> Filled out HELP activity for all the separate activities.
+        \n—> Fixed a crash when user tried to save without any team name.
+
+        \n\n-> Version 1.00 (BETA):
+        \n—> Beta Testing and Beta Rollout
+        ]]>
+    </string>
+    <string name="helpSelectTeamHeader">
+        Help With SELECT TEAM Activity ( W.I.P. ):
+    </string>
+    <string name="helpSelectTeamBody">
+        <![CDATA[
+        >General Idea:
+        \n-> Users can select a team if there are any available.
+        \n—> The selected team is yellow.
+        \n-> Users can create a new roster.
+        \n-> Users can delete/edit/select an existing roster.
+
+        \n\n> Specific Widgets:
+        \n-> Select a Team:
+        \n—> A scrollable LIST VIEW of all fo the available teams.
+        \n-> Delete:
+        \n—> Deletes the selected team.
+        \n-> Create:
+        \n—> Launches the MODIFY ROSTER activity.
+        \n-> Help:
+        \n—> Launches the HELP activity for the SELECT TEAM activity.
+        \n-> Edit:
+        \n—> Launches the MODIFY ROSTER activity for the selected team.
+        \n-> Select:
+        \n—> Launches the MODIFY LINEUP activity for the selected team.
+        ]]>
+    </string>
+    <string name="helpModifyRosterHeader">
+        Help With MODIFY ROSTER Activity ( W.I.P. ):
+    </string>
+    <string name="helpModifyRosterBody">
+        <![CDATA[> General Idea:
+        \n-> Users can edit the team name.
+        \n-> Users can choose which division the team belongs to.
+        \n—> This affects the required number of players.
+        \n> Users can select a player if there are any available.
+        \n-> The selected player is yellow.
+        \n-> Users can edit/delete existing players from the roster.
+        \n-> Users can create new players for the roster.
+        \n—> Players are enabled to play a position when the checkbox for the position is checked.
+        \n——> The player is then given a rating for that position, ( 0 - 9 )
+        \n——> The default rating is 0 is not given one.
+        \n—> Players require a name, a number, and at least 1 position ( Any rating )
+
+        \n\n> Specific Widgets:
+        \n-> Team Division:
+        \n—> Select a team division for the team.
+        \n——> The default team division is U10.
+        \n-> Create:
+        \n—> Launches the MODIFY PLAYER activity.
+        \n-> Edit:
+        \n—> Launches the MODIFY PLAYER activity for the selected player.
+        \n-> Delete:
+        \n—> Deletes the selected player.
+        \n-> Cancel:
+        \n—> Return to the SELECT TEAM activity without saving anything.
+        \n-> Help:
+        \n—> Launches the HELP activity for the MODIFY ROSTER activity.
+        \n-> Save:
+        \n—> Return to the SELECT TEAM activity saving the current team information.
+        ]]>
+    </string>
+    <string name="helpModifyLineupHeader">
+        Help With MODIFY LINEUP Activity ( W.I.P. ):
+    </string>
+    <string name="helpModifyLineupBody">
+        <![CDATA[> General Idea:
+        \n-> Users can choose which formation they want for the quarter.
+        \n-> Users can set players to positions per quarter.
+        \n-> Users can change the quarter rule.
+        \n—> No Quarter Rule: No rule
+        \n—> 2 Quarter Rule: Players must play at least 2 quarters per game if possible.
+        \n—> 3 Quarter Rule: Players must play at least 3 quarters per game if possible.
+        \n-> Users can modify the attendance of the players.
+        \n-> Users can see the result of their player inputs in a mock-up of a roster card.
+
+        \n\n> Specific Widgets:
+        \n-> Team Formation:
+        \n—> Selects the formation for the quarter.
+        \n-> Create:
+        \n—> Create a new custom formation for the division.
+        \n——> Any custom formation for a team while be available to other team\'s of the same division.
+        \n-> Delete:
+        \n—> Delete any custom formation.
+        \n—> Cannot be any of the custom formations, the 1st 3.
+        \n-> Q1:
+        \n—> Change the quarter to the 1st quarter.
+        \n-> Q2:
+        \n—> Change the quarter to the 2nd quarter.
+        \n-> Q3:
+        \n—> Change the quarter to the 3rd quarter.
+        \n-> Q4:
+        \n—> Change the quarter to the 4th quarter.
+        \n-> Return:
+        \n—> Leave the MODIFY LINEUP activity, and return to SELECT TEAM activity.
+        \n-> No/2/3 Quarter Rule:
+        \n—> Change the quarter ruling.
+        \n—> The number represents the minimum number of quarters a player needs to play during a game.
+        \n-> Help:
+        \n—> Launches the HELP activity for the MODIFY LINEUP activity.
+        \n-> Attendance:
+        \n—> Launch the MODIFY ATTENDANCE activity for this team.
+        \n-> Lineup Card:
+        \n—> Launch the DISPLAY LINEUP CARD activity for this team and the current rotation.
+        ]]>
+    </string>
+    <string name="helpModifyFormationHeader">
+        Help With MODIFY FORMATION Activity ( W.I.P. ):
+    </string>
+    <string name="helpModifyFormationBody">
+        <![CDATA[> General Idea:
+        \n-> Users can create their own custom soccer formation based off of the team division.
+        \n—> Quick add common soccer formation components.
+        \n—> Manually add a position and assign it a role, (Goalie, Def., Mid., For.)
+
+        \n\n> Specific Widgets:
+        \n-> Quick Add:
+        \n—> Add a common formation component to the current formation.
+        \n-> Cancel:
+        \n—> Return to MODIFY LINEUP activity without saving the custom formation.
+        \n-> Help:
+        \n—> Launches the HELP activity for the MODIFY FORMATION activity.
+        \n-> Save:
+        \n—> Return to MODIFY LINEUP activity and save the custom formation.
+        ]]>
+    </string>
+
+    <string name="abbGoalie">
+        G.
+    </string>
+    <string name="abbDefender">
+        D.
+    </string>
+    <string name="abbMidfielder">
+        M.
+    </string>
+    <string name="abbForward">
+        F.
+    </string>
+
+    <string name="hintName">
+        Type Name Here
+    </string>
+    <string name="hintNumber">
+        Type Number Here
+    </string>
+
+    <string name="textPlayerHeader">
+        Player\'s Position(s) &amp; Rating(s):
+    </string>
+    <string name="textPlayerName">
+        Player Name:
+    </string>
+    <string name="textPlayerNumber">
+        Player Number:
+    </string>
+    <string name="textTeamName">
+        Team Name:
+    </string>
+    <string name="textTeamDivision">
+        Team Division:
+    </string>
+    <string name="textTeamRoster">
+        Team Roster:
+    </string>
+    <string name="textTeamFormation">
+        Team Formation:
+    </string>
+    <string name="textCancel">
+        Cancel
+    </string>
+    <string name="textRecPlayers">
+        Recommended Players:
+    </string>
+    <string name="textNumber">
+        #
+    </string>
+    <string name="textName">
+        Name
+    </string>
+    <string name="textDiv">
+        Div.
+    </string>
+    <string name="textRating">
+        Rating
+    </string>
+    <string name="textAllPlayers">
+        All Players:
+    </string>
+    <string name="textAttendanceHeader">
+        Player Attendance
+    </string>
+    <string name="textLineupHeader">
+        Lineup Card
+    </string>
+    <string name="textMinimize">
+        Minimize
+    </string>
+    <string name="textPlayerAbsentWholeGame">
+        Press Name If Absent For Whole Game
+    </string>
+    <string name="textQ1">
+        Q1
+    </string>
+    <string name="textQ2">
+        Q2
+    </string>
+    <string name="textQ3">
+        Q3
+    </string>
+    <string name="textQ4">
+        Q4
+    </string>
+    <string name="textEmpty">
+        Empty
+    </string>
+    <string name="textQuickAddFormation">
+        Quick Add:
+    </string>
+    <string name="textFormationName">
+        Formation Name:
+    </string>
+    <string name="textSave">
+        Save
+    </string>
+
+    <string name="defaultText">
+        Ew
+    </string>
+    <string name="appName">
+        Zap Card
+    </string>
+</resources>

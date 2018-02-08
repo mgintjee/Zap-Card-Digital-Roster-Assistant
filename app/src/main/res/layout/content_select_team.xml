@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/Team_imageViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:background="@android:color/black"
+        android:scaleType="fitXY"
+        android:src="@drawable/title_banner" />
+
+    <LinearLayout
+        android:id="@+id/Team_textViewListOfTeamsHeader"
+        android:layout_below="@id/Team_imageViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24sp"
+        android:layout_marginRight="24sp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/TeamInfoRow_tVName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/my_border_white"
+            android:text="@string/textName"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/TeamInfoRow_tVDivision"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:background="@drawable/my_border_white"
+            android:text="@string/textDiv"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/Team_listViewTeamList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/Team_linearLayoutButtons"
+        android:layout_below="@+id/Team_textViewListOfTeamsHeader"
+        android:background="@android:color/darker_gray" />
+
+    <LinearLayout
+        android:id="@+id/Team_linearLayoutButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/Team_imageButtonDelete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/delete_roster" />
+
+        <ImageButton
+            android:id="@+id/Team_imageButtonCreate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/create_roster" />
+
+        <ImageButton
+            android:id="@+id/Team_imageButtonHelp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            android:src="@drawable/help" />
+
+        <ImageButton
+            android:id="@+id/Team_imageButtonEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/edit_roster" />
+
+        <ImageButton
+            android:id="@+id/Team_imageButtonSelect"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/select" />
+
+    </LinearLayout>
+
+</RelativeLayout>

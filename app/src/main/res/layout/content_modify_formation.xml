@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <ScrollView
+        android:id="@+id/Formation_scrollViewField"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/Formation_linearLayoutFooter"
+        android:layout_below="@id/Formation_linearLayoutHeader"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/field_shelf0"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer00"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/field_empty"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/field_empty"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/field_empty"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer03"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/field_empty"
+                    android:spinnerMode="dialog" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer04"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/field_empty"
+                    android:spinnerMode="dialog" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/field_shelf1"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer14"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/field_shelf2"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer21"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer23"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer24"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/field_shelf3"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer30"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer31"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer32"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer33"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer34"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/field_shelf4"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer40"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer41"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer42"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer43"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer44"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/field_shelf5"
+                android:orientation="horizontal">
+
+
+                <Spinner
+                    android:id="@+id/Formation_spacer0"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:visibility="invisible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spacer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:visibility="invisible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerPlayer50"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_goalie"
+                    android:clickable="false"
+                    android:scaleType="fitXY"
+                    android:spinnerMode="dialog"
+                    android:visibility="visible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spacer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:visibility="invisible" />
+
+                <Spinner
+                    android:id="@+id/Formation_spacer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/field_empty"
+                    android:scaleType="fitXY"
+                    android:visibility="invisible" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/Formation_linearLayoutHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/Formation_imageViewBanner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/modify_formation" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:maxLines="1"
+                    android:text="@string/textFormationName"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/Formation_editTextFormationName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:hint="@string/hintName"
+                    android:singleLine="false"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@string/textQuickAddFormation"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/Formation_spinnerQuickAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:spinnerMode="dialog" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/Formation_textViewPlayerCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:maxLines="2"
+                    android:text="@string/defaultText"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/Formation_textViewPlayerRequired"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:maxLines="2"
+                    android:text="@string/defaultText"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:autoSizeTextType="uniform" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Formation_linearLayoutFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+
+        <ImageButton
+            android:id="@+id/Formation_imageButtonCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/cancel" />
+
+        <ImageButton
+            android:id="@+id/Formation_spacerFooter0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/cancel" />
+
+        <ImageButton
+            android:id="@+id/Formation_imageButtonHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/help" />
+
+        <ImageButton
+            android:id="@+id/Formation_spacerFooter1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/cancel" />
+
+        <ImageButton
+            android:id="@+id/Formation_imageButtonSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:adjustViewBounds="true"
+            android:background="@android:color/black"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/save" />
+
+    </LinearLayout>
+</RelativeLayout>
