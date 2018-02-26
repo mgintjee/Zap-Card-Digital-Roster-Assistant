@@ -211,49 +211,20 @@ public class ActivitySelectTeam extends AppCompatActivity {
                 .setMessage("Name: " + name + "\nDivision: " + division )
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent;
-                        String teamName, fileName;
-                        TeamInfo deleteTeam;
-                        File file;
                         hideBars();
 
                         switch (type)
                         {
                             case DELETE:
-                                toastThis("Deleted " + formatTeamInfo(lViewTeamListAdapter.getSelectedTeam()));
-
-                                deleteTeam = lViewTeamListAdapter.getSelectedTeam();
-                                fileName = deleteTeam.getName() + "_" + deleteTeam.getDivision();
-
-                                file = new File(getFilesDir() + File.separator +"teams" + File.separator + fileName);
-                                Log.d( "DEBUG", getFilesDir() + File.separator +"teams" + File.separator + fileName );
-
-                                if( file.exists() )
-                                {
-                                    deleteDir( file );
-                                }
-
-                                lViewTeamListAdapter.remove(deleteTeam);
-                                updateTeamListView();
-
+                                handleDeleteType();
                                 break;
 
                             case EDIT:
-                                toastThis("Editing " + formatTeamInfo(lViewTeamListAdapter.getSelectedTeam()));
-
-                                intent = new Intent(thisContext, ActivityModifyRoster.class);
-                                teamName = formatTeamInfo(lViewTeamListAdapter.getSelectedTeam());
-                                intent.putExtra("teamName",teamName);
-                                startActivityForResult(intent, activityCreateEditResult);
+                                handleEditType();
                                 break;
 
                             case SELECT:
-                                toastThis("Selecting " + formatTeamInfo(lViewTeamListAdapter.getSelectedTeam()));
-
-                                intent = new Intent(thisContext, ActivityModifyLineup.class);
-                                teamName = formatTeamInfo(lViewTeamListAdapter.getSelectedTeam());
-                                intent.putExtra("teamName",teamName);
-                                startActivityForResult(intent, activityCreateEditResult);
+                                handleSelectType();
                                 break;
 
                             default:
@@ -267,6 +238,50 @@ public class ActivitySelectTeam extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+    private void handleDeleteType(){
+        String fileName;
+        TeamInfo deleteTeam;
+        File file;
+        hideBars();
+
+        toastThis("Deleted " + formatTeamInfo(lViewTeamListAdapter.getSelectedTeam()));
+
+        deleteTeam = lViewTeamListAdapter.getSelectedTeam();
+        fileName = deleteTeam.getName() + "_" + deleteTeam.getDivision();
+
+        file = new File(getFilesDir() + File.separator +"teams" + File.separator + fileName);
+
+        if( file.exists() )
+        {
+            deleteDir( file );
+        }
+
+        lViewTeamListAdapter.remove(deleteTeam);
+        updateTeamListView();
+
+    }
+    private void handleEditType(){
+        Intent intent;
+        String teamName;
+
+        toastThis("Editing " + formatTeamInfo(lViewTeamListAdapter.getSelectedTeam()));
+
+        intent = new Intent(thisContext, ActivityModifyRoster.class);
+        teamName = formatTeamInfo(lViewTeamListAdapter.getSelectedTeam());
+        intent.putExtra("teamName",teamName);
+        startActivityForResult(intent, activityCreateEditResult);
+    }
+    private void handleSelectType(){
+        Intent intent;
+        String teamName;
+
+        toastThis("Selecting " + formatTeamInfo(lViewTeamListAdapter.getSelectedTeam()));
+
+        intent = new Intent(thisContext, ActivityModifyLineup.class);
+        teamName = formatTeamInfo(lViewTeamListAdapter.getSelectedTeam());
+        intent.putExtra("teamName",teamName);
+        startActivityForResult(intent, activityCreateEditResult);
     }
     private void dialogError(String action) {
         AlertDialog.Builder builder;

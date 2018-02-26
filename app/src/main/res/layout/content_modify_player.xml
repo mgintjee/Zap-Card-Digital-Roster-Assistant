@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:text="@string/textPlayerName"
+            android:text="@string/textPlayerNumber"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             app:autoSizeStepGranularity="2sp"
@@ -123,14 +123,12 @@
                     android:id="@+id/Player_checkBoxGoalie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
                     android:maxLines="1"
                     android:text="@string/abbGoalie"
                     android:textAlignment="textStart"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <NumberPicker
                     android:id="@+id/Player_numberPickerGoalie"
@@ -153,8 +151,6 @@
                     android:id="@+id/Player_checkBoxDefender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
                     android:maxLines="1"
                     android:text="@string/abbDefender"
                     android:textAlignment="textStart"
@@ -209,14 +205,12 @@
                     android:id="@+id/Player_checkBoxForward"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
                     android:maxLines="1"
                     android:text="@string/abbForward"
                     android:textAlignment="textStart"
                     android:textColor="@android:color/black"
                     android:textSize="24sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <NumberPicker
                     android:id="@+id/Player_numberPickerForward"

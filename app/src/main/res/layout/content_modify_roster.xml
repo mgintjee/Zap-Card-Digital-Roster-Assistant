@@ -31,6 +31,7 @@
             android:id="@+id/Roster_imageViewBanner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/modify_roster" />
@@ -38,12 +39,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/Roster_textViewTeamName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:text="@string/textTeamName"
@@ -67,12 +69,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/Roster_textViewTeamDivision"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/white"
                 android:text="@string/textTeamDivision"
@@ -80,7 +83,7 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:autoSizeStepGranularity="2sp"
-                app:autoSizeTextType="uniform"/>
+                app:autoSizeTextType="uniform" />
 
             <Spinner
                 android:id="@+id/Roster_spinnerDivision"
@@ -93,6 +96,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
@@ -110,7 +114,7 @@
                     <android.support.v7.widget.AppCompatTextView
                         android:id="@+id/Roster_textViewTeamRoster"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@android:color/white"
                         android:text="@string/textTeamRoster"
@@ -118,7 +122,7 @@
                         android:textSize="24sp"
                         android:textStyle="bold"
                         app:autoSizeStepGranularity="2sp"
-                        app:autoSizeTextType="uniform"/>
+                        app:autoSizeTextType="uniform" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -179,8 +183,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:background="@drawable/my_border_white"
-                        android:text="@string/textNumber"
                         android:maxLines="1"
+                        android:text="@string/textNumber"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="28sp"
@@ -193,8 +197,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/my_border_white"
-                        android:text="@string/textName"
                         android:maxLines="1"
+                        android:text="@string/textName"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="28sp"
@@ -214,8 +218,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/my_border_white"
-                        android:text="@string/abbGoalie"
                         android:maxLines="1"
+                        android:text="@string/abbGoalie"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="28sp"
@@ -228,8 +232,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/my_border_white"
-                        android:text="@string/abbDefender"
                         android:maxLines="1"
+                        android:text="@string/abbDefender"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="28sp"
@@ -242,8 +246,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/my_border_white"
-                        android:text="@string/abbMidfielder"
                         android:maxLines="1"
+                        android:text="@string/abbMidfielder"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="28sp"
@@ -256,8 +260,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/my_border_white"
-                        android:text="@string/abbForward"
                         android:maxLines="1"
+                        android:text="@string/abbForward"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="28sp"

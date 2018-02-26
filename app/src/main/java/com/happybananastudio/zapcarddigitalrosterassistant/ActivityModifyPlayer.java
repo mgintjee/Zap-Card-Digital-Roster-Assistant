@@ -345,6 +345,7 @@ public class ActivityModifyPlayer extends Activity {
         numberPicker.setMinValue(0);
         numberPicker.setMaxValue(9);
         numberPicker.setDisplayedValues(values);
+        numberPicker.setValue(1);
     }
     private void derivePlayerInfo() {
         String[] splitPlayerInfo = playerInfo.split(";");

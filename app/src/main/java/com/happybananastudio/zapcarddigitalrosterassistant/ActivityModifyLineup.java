@@ -446,14 +446,11 @@ public class ActivityModifyLineup extends AppCompatActivity {
 
         for (int p = 0; p < lineup.get(q).size(); ++p) {
             thisPlayerNumber = lineup.get(q).get(p).split(":")[0];
-            Log.d("PRE", Integer.toString(p) + ") This player number:" + thisPlayerNumber);
             if (!thisPlayerNumber.equals("Empty")) {
                 for (int i = 0; i < allPlayers.get(q).size(); ++i) {
                     thatPlayer = allPlayers.get(q).get(i);
                     thatPlayerNumber = thatPlayer.split(":")[0];
-                    Log.d("A", "This player number:" + thisPlayerNumber + " that player:" + thatPlayer);
                     if (thisPlayerNumber.equals(thatPlayerNumber)) {
-                        Log.d("A", "DELETED " + thisPlayerNumber);
                         allPlayers.get(q).remove(thatPlayer);
                         break;
                     }
@@ -461,9 +458,7 @@ public class ActivityModifyLineup extends AppCompatActivity {
                 for (int i = 0; i < allGoalies.get(q).size(); ++i) {
                     thatPlayer = allGoalies.get(q).get(i);
                     thatPlayerNumber = thatPlayer.split(":")[0];
-                    Log.d("G", "This player number:" + thisPlayerNumber + " that player:" + thatPlayer);
                     if (thisPlayerNumber.equals(thatPlayerNumber)) {
-                        Log.d("G", "DELETED " + thisPlayerNumber);
                         allGoalies.get(q).remove(thatPlayer);
                         break;
                     }
@@ -471,9 +466,7 @@ public class ActivityModifyLineup extends AppCompatActivity {
                 for (int i = 0; i < allDefenders.get(q).size(); ++i) {
                     thatPlayer = allDefenders.get(q).get(i);
                     thatPlayerNumber = thatPlayer.split(":")[0];
-                    Log.d("D", "This player number:" + thisPlayerNumber + " that player:" + thatPlayer);
                     if (thisPlayerNumber.equals(thatPlayerNumber)) {
-                        Log.d("D", "DELETED " + thisPlayerNumber);
                         allDefenders.get(q).remove(thatPlayer);
                         break;
                     }
@@ -481,9 +474,7 @@ public class ActivityModifyLineup extends AppCompatActivity {
                 for (int i = 0; i < allMidfielders.get(q).size(); ++i) {
                     thatPlayer = allMidfielders.get(q).get(i);
                     thatPlayerNumber = thatPlayer.split(":")[0];
-                    Log.d("M", "This player number:" + thisPlayerNumber + " that player:" + thatPlayerNumber);
                     if (thisPlayerNumber.equals(thatPlayerNumber)) {
-                        Log.d("M", "DELETED " + thisPlayerNumber);
                         allMidfielders.get(q).remove(thatPlayer);
                         break;
                     }
@@ -491,9 +482,7 @@ public class ActivityModifyLineup extends AppCompatActivity {
                 for (int i = 0; i < allForwards.get(q).size(); ++i) {
                     thatPlayer = allForwards.get(q).get(i);
                     thatPlayerNumber = thatPlayer.split(":")[0];
-                    Log.d("F", "This player number:" + thisPlayerNumber + " that player:" + thatPlayer);
                     if (thisPlayerNumber.equals(thatPlayerNumber)) {
-                        Log.d("F", "DELETED " + thisPlayerNumber);
                         allForwards.get(q).remove(thatPlayer);
                         break;
                     }
@@ -919,72 +908,125 @@ public class ActivityModifyLineup extends AppCompatActivity {
     }
     private void getIntentInfo() {
         String[] teamInfo;
-        FileInputStream fIS;
-        BufferedReader reader;
 
         String teamDir = getIntent().getStringExtra("teamName");
         String rosterFileString = getFilesDir() + File.separator + "teams" + File.separator + teamDir + File.separator + "roster";
+        String lineupFileString = getFilesDir() + File.separator + "teams" + File.separator + teamDir + File.separator + "lineup";
 
         if ( teamDir != null && !teamDir.equals("") ) {
             teamInfo = teamDir.split("_");
             teamName = teamInfo[0];
             teamDivision = teamInfo[1];
             fillArrays();
-            File rosterFile = new File(rosterFileString);
             setUpArrayLists();
+            int numberOfPlayers = formationDetails.get(0).size();
+            File rosterFile = new File(rosterFileString);
+            File lineupFile = new File(lineupFileString);
+
+            if( lineupFile.exists() ){
+                handleLineupFileExists(lineupFileString, numberOfPlayers);
+            }
+            else{
+                handleLineupFileAbsent(lineupFile, numberOfPlayers);
+            }
+
             if( rosterFile.exists() )
             {
-                try {
-                    fIS = new FileInputStream(rosterFileString);
-                    reader = new BufferedReader( new InputStreamReader(fIS));
-                    String line = reader.readLine();
-                    String[] playerInfo;
-                    String playerName, playerNumber, playerPosition, playerIdentifier;
-                    char G, D, M, F;
-
-                    while( line != null )
-                    {
-                        playerInfo = line.split(";");
-                        playerName = playerInfo[0];
-                        playerNumber = playerInfo[1];
-                        playerPosition = playerInfo[2];
-
-                        G = playerPosition.charAt(0);
-                        D = playerPosition.charAt(1);
-                        M = playerPosition.charAt(2);
-                        F = playerPosition.charAt(3);
-
-                        playerIdentifier = "#" + playerNumber;
-                        rosterInfo.add(playerIdentifier + ":" + playerName);
-                        for( int i = 0; i < 5; ++i ) {
-                            if (G != '0') {
-                                allGoalies.get(i).add(playerIdentifier + ":" + G);
-                            }
-
-                            if (D != '0') {
-                                allDefenders.get(i).add(playerIdentifier + ":"+ D);
-                            }
-
-                            if (M != '0') {
-                                allMidfielders.get(i).add(playerIdentifier + ":"+ M);
-                            }
-
-                            if (F != '0') {
-                                allForwards.get(i).add(playerIdentifier + ":"+ F);
-                            }
-
-                            allPlayers.get(i).add(playerIdentifier  + ":" + G  + D  + M + F);
-                        }
-
-                        line = reader.readLine();
-                    }
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                handleRosterFileExists(rosterFileString);
             }
         }
         updateFormations();
+    }
+    private void handleLineupFileExists( String lineupFileString, int numberOfPlayers ){
+        FileInputStream fIS;
+        BufferedReader reader;
+        try {
+            fIS = new FileInputStream(lineupFileString);
+            reader = new BufferedReader(new InputStreamReader(fIS));
+            String line = reader.readLine();
+
+            for( int q = 0; q < 4; ++q ){
+                for( int p = 0; p < numberOfPlayers; ++p ) {
+                    lineup.get(q).set(p, line);
+                    line = reader.readLine();
+                }
+            }
+
+            fIS.close();
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    private void handleLineupFileAbsent(File lineupFile, int numberOfPlayers){
+        StringBuilder defaultLineup = new StringBuilder("");
+        FileOutputStream fOS;
+
+        for( int i = 0; i < numberOfPlayers * 4; ++i ){
+            defaultLineup.append("Empty").append("\n");
+        }
+        try{
+            fOS = new FileOutputStream(lineupFile, false  );
+
+            fOS.write(defaultLineup.toString().getBytes());
+            fOS.close();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    private void handleRosterFileExists(String rosterFileString){
+        FileInputStream fIS;
+        BufferedReader reader;
+        try {
+            fIS = new FileInputStream(rosterFileString);
+            reader = new BufferedReader( new InputStreamReader(fIS));
+            String line = reader.readLine();
+            String[] playerInfo;
+            String playerName, playerNumber, playerPosition, playerIdentifier;
+            char G, D, M, F;
+
+            while( line != null )
+            {
+                playerInfo = line.split(";");
+                playerName = playerInfo[0];
+                playerNumber = playerInfo[1];
+                playerPosition = playerInfo[2];
+
+                G = playerPosition.charAt(0);
+                D = playerPosition.charAt(1);
+                M = playerPosition.charAt(2);
+                F = playerPosition.charAt(3);
+
+                playerIdentifier = "#" + playerNumber;
+                rosterInfo.add(playerIdentifier + ":" + playerName);
+                for( int i = 0; i < 5; ++i ) {
+                    if (G != '0') {
+                        allGoalies.get(i).add(playerIdentifier + ":" + G);
+                    }
+
+                    if (D != '0') {
+                        allDefenders.get(i).add(playerIdentifier + ":"+ D);
+                    }
+
+                    if (M != '0') {
+                        allMidfielders.get(i).add(playerIdentifier + ":"+ M);
+                    }
+
+                    if (F != '0') {
+                        allForwards.get(i).add(playerIdentifier + ":"+ F);
+                    }
+
+                    allPlayers.get(i).add(playerIdentifier  + ":" + G  + D  + M + F);
+                }
+
+                line = reader.readLine();
+            }
+            fIS.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public File[] GetFiles() {
         File f = new File(getFilesDir() + File.separator + "formations" + File.separator + teamDivision);
@@ -1043,6 +1085,7 @@ public class ActivityModifyLineup extends AppCompatActivity {
         return arrayFiles;
     }
     private void setUpArrayLists(){
+        int numberOfPlayers = formationDetails.get(0).size();
         rosterInfo = new ArrayList<>();
         allPlayers = new ArrayList<>();
         allGoalies = new ArrayList<>();
@@ -1069,18 +1112,11 @@ public class ActivityModifyLineup extends AppCompatActivity {
             allForwards.get(i).add("Empty");
             lineup.add(new ArrayList<String>());
             attendance.add( new ArrayList<String>());
-        }
 
-        for( int i = 0; i < 4; ++i ) {
-            for( int j = 0; j < formationDetails.get(0).size(); ++j){
+            for( int p = 0; p < numberOfPlayers; ++p){
                 lineup.get(i).add("Empty");
             }
         }
-    }
-    private void toastThis(String message){
-        Toast.makeText(thisContext,
-                message,
-                Toast.LENGTH_SHORT).show();
     }
     private void dialogConfirmCancel() {
         AlertDialog.Builder builder;
@@ -1091,7 +1127,7 @@ public class ActivityModifyLineup extends AppCompatActivity {
             builder = new AlertDialog.Builder(thisContext);
         }
         builder.setTitle("Are you sure you want to RETURN:")
-                    .setMessage("You will return to the SELECT TEAM activity.\nYour progress here won't be saved until that is implemented.")
+                    .setMessage("You will return to the SELECT TEAM activity.\nYour progress here is saved\nHOWEVER, it will be modified if you edit this team.")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
@@ -1176,6 +1212,36 @@ public class ActivityModifyLineup extends AppCompatActivity {
 
         return name;
     }
+    private void saveCurrentLineup(){
+        FileOutputStream fOS;
+        StringBuilder lineupString = new StringBuilder("");
+        String teamDir = getIntent().getStringExtra("teamName");
+        String lineupFileString = getFilesDir() + File.separator + "teams" + File.separator + teamDir + File.separator + "lineup";
+        int numberOfPlayers = formationDetails.get(0).size();
+        File lineupFile = new File(lineupFileString);
+
+        for( int q = 0; q < 4; ++q ){
+            for( int p = 0; p < numberOfPlayers; ++p ) {
+                lineupString.append(lineup.get(q).get(p)).append("\n");
+            }
+        }
+
+        try{
+            fOS = new FileOutputStream(lineupFile, false  );
+
+            fOS.write(lineupString.toString().getBytes());
+            fOS.close();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    private void toastThis(String message){
+        Toast.makeText(thisContext,
+                message,
+                Toast.LENGTH_SHORT).show();
+    }
     @NonNull
     private String lineupValidity(){
         boolean valid = true;
@@ -1246,7 +1312,7 @@ public class ActivityModifyLineup extends AppCompatActivity {
                 case ATTENDANCE:
                     attendance.clear();
                     ArrayList<String> q1, q2, q3, q4;
-                    String thatPlayer, thisPlayer, thisPlayerNumber, thatPlayerNumber;
+                    String thatPlayer, thisPlayerNumber, thatPlayerNumber;
                     q1 = data.getStringArrayListExtra("q1Attendance");
                     q2 = data.getStringArrayListExtra("q2Attendance");
                     q3 = data.getStringArrayListExtra("q3Attendance");
@@ -1289,8 +1355,10 @@ public class ActivityModifyLineup extends AppCompatActivity {
                     lineup.get(whichQuarter).set(Integer.valueOf(playerInd), selectedPlayer);
                     updateAvailablePlayers(whichQuarter);
                     updateFieldPlayers();
+                    saveCurrentLineup();
                     break;
             }
         }
+        hideBars();
     }
 }

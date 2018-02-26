@@ -18,12 +18,18 @@
         \n-> Lineup History
 
         \n\n> Changelog:
+        \n\n-> Version 1.07 (Current):
+        \n—> Minor Spelling Bugs
+        \n—> Now the lineup is saved in between uses.
+        \n——> The lineup is saved every time the user selects a player to add to the lineup.
+        \n—> Reformatted code to be prettier.
+        \n——> Specifically between the gates of the activities.
 
-        \n\n-> Version 1.06 ( Current ):
+        \n\n-> Version 1.06:
         \n—> Bug fixes for Version 1.05
         \n—> Reformatted the DISPLAY LINEUP error text
 
-        \n\n-> Version 1.05 ( Current ):
+        \n\n-> Version 1.05:
         \n—> Updated format for MODIFY LINEUP activity.
         \n—> Updated the field graphics to be rounder and match the app\'s colors.
         \n——> Hopefully it will make it less busy.

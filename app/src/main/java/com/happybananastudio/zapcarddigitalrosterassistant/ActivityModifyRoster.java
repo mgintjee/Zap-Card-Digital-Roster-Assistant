@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -381,39 +382,11 @@ public class ActivityModifyRoster extends AppCompatActivity{
                         public void onClick(DialogInterface dialog, int which) {
                             switch (type) {
                                 case CANCEL:
-                                    setResult(RESULT_CANCELED);
-                                    hideBars();
-                                    finish();
+                                    handleCancelType();
                                     break;
 
                                 case SAVE:
-                                    Collections.sort(playerList);
-                                    String teamDir = getFilesDir() + File.separator + "teams" + File.separator + teamName + "_" + formatDivision();
-                                    String teamRosterFile = teamDir + File.separator + "roster";
-                                    String rosterString = formatRoster();
-                                    FileOutputStream outputStream;
-
-                                    try{
-                                        if( ! new File(teamDir).exists() ) {
-                                            File directory = new File(teamDir);
-                                            directory.mkdirs();
-                                        }
-
-                                        outputStream = new FileOutputStream(new File( teamRosterFile ) , false  );
-
-                                        outputStream.write(rosterString.getBytes());
-                                        outputStream.close();
-
-                                    }catch (Exception e)
-                                    {
-                                        e.printStackTrace();
-                                    }
-
-                                    setResult(RESULT_OK);
-                                    hideBars();
-
-                                    finish();
-
+                                    handleSaveType();
                                     break;
 
                                 default:
@@ -431,6 +404,112 @@ public class ActivityModifyRoster extends AppCompatActivity{
         else
         {
             dialogSaveError();
+        }
+    }
+    private void handleCancelType(){
+        setResult(RESULT_CANCELED);
+        hideBars();
+        finish();
+    }
+    private void handleSaveType(){
+        Collections.sort(playerList);
+        String teamDir = getFilesDir() + File.separator + "teams" + File.separator + teamName + "_" + formatDivision();
+        String teamRosterFile = teamDir + File.separator + "roster";
+        String rosterString = formatRoster();
+        FileOutputStream outputStream;
+
+        try{
+            if( ! new File(teamDir).exists() ) {
+                File directory = new File(teamDir);
+                directory.mkdirs();
+            }
+
+            outputStream = new FileOutputStream(new File( teamRosterFile ) , false  );
+
+            outputStream.write(rosterString.getBytes());
+            outputStream.close();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        updateLineupFile();
+        setResult(RESULT_OK);
+        hideBars();
+
+        finish();
+    }
+    private void updateLineupFile(){
+        String teamDir = getIntent().getStringExtra("teamName");
+        String lineupFileString = getFilesDir() + File.separator + "teams" + File.separator + teamDir + File.separator + "lineup";
+
+        File lineupFile = new File(lineupFileString);
+
+        if( lineupFile.exists() ){
+            handleLineupFileExists(lineupFileString);
+        }
+        else{
+            handleLineupFileAbsent(lineupFile);
+        }
+    }
+    private void handleLineupFileExists( String lineupFileString ){
+        FileInputStream fIS;
+        FileOutputStream fOS;
+        BufferedReader reader;
+        String line, playerNum;
+        try {
+            fIS = new FileInputStream(lineupFileString);
+            reader = new BufferedReader(new InputStreamReader(fIS));
+            ArrayList<String> playerNumbers = new ArrayList<>();
+            StringBuilder lineupString = new StringBuilder("");
+
+            for( int i = 0; i < numberOfPlayers; ++i )
+            {
+                playerNumbers.add(playerList.get(i).getNumber());
+            }
+
+            for( int q = 0; q < 4; ++q ){
+                for( int p = 0; p < numberOfPlayers; ++p ) {
+                    line = reader.readLine();
+                    playerNum = line.replace("#", "");
+                    if( playerNumbers.contains(playerNum) || playerNum.equals("Empty")){
+                        lineupString.append("#" + playerNum);
+                    }
+                    else{
+                        lineupString.append("Empty");
+                    }
+                    lineupString.append("\n");
+                }
+            }
+
+            fOS = new FileOutputStream(new File(lineupFileString), false  );
+
+            fOS.write(lineupString.toString().getBytes());
+
+            fOS.close();
+            fIS.close();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+    private void handleLineupFileAbsent(File lineupFile){
+        StringBuilder defaultLineup = new StringBuilder("");
+        FileOutputStream fOS;
+
+        for( int i = 0; i < numberOfPlayers * 4; ++i ){
+            defaultLineup.append("Empty").append("\n");
+        }
+        try{
+            fOS = new FileOutputStream(lineupFile, false  );
+
+            fOS.write(defaultLineup.toString().getBytes());
+            fOS.close();
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
         }
     }
     private void dialogPlayerError(String action) {
@@ -656,5 +735,6 @@ public class ActivityModifyRoster extends AppCompatActivity{
 
             updatePlayerListView(player);
         }
+        hideBars();
     }
 }
