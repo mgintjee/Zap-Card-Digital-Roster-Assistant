@@ -552,7 +552,7 @@
             android:adjustViewBounds="true"
             android:background="@android:color/black"
             android:scaleType="fitXY"
-            app:srcCompat="@drawable/cancel" />
+            app:srcCompat="@drawable/go_back" />
 
         <ImageButton
             android:id="@+id/Formation_spacerFooter0"
@@ -563,7 +563,7 @@
             android:background="@android:color/black"
             android:scaleType="fitXY"
             android:visibility="invisible"
-            app:srcCompat="@drawable/cancel" />
+            app:srcCompat="@drawable/help" />
 
         <ImageButton
             android:id="@+id/Formation_imageButtonHelp"
@@ -584,7 +584,7 @@
             android:background="@android:color/black"
             android:scaleType="fitXY"
             android:visibility="invisible"
-            app:srcCompat="@drawable/cancel" />
+            app:srcCompat="@drawable/help" />
 
         <ImageButton
             android:id="@+id/Formation_imageButtonSave"

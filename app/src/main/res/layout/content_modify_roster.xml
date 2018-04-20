@@ -289,7 +289,7 @@
             android:adjustViewBounds="true"
             android:background="@android:color/black"
             android:scaleType="fitXY"
-            android:src="@drawable/cancel" />
+            android:src="@drawable/go_back" />
 
         <ImageButton
             android:id="@+id/Roster_spacer1"
@@ -299,7 +299,7 @@
             android:adjustViewBounds="true"
             android:background="@android:color/black"
             android:scaleType="fitXY"
-            android:src="@drawable/cancel"
+            android:src="@drawable/help"
             android:visibility="invisible" />
 
         <ImageButton
@@ -320,7 +320,7 @@
             android:adjustViewBounds="true"
             android:background="@android:color/black"
             android:scaleType="fitXY"
-            android:src="@drawable/cancel"
+            android:src="@drawable/help"
             android:visibility="invisible" />
 
         <ImageButton
